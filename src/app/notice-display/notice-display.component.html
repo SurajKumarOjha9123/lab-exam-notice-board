@@ -1,0 +1,74 @@
+<div style="padding-bottom: 150px; background-color: rgba(135, 207, 235, 0.459) ">
+    <h1 style="text-align: center;"> Todo App</h1>
+    <div
+        style="max-width: 900px; margin: auto; margin-top: 40px; border: 3px solid brown; background-color: rgba(255, 228, 196, 0.788); padding: 50px; text-align: center; box-shadow: 5px 10px;">
+        <table style="width: 100%;">
+            <th>
+                <label style="font-family: cursive; font-size: 20px;">Enter notice title : </label>
+                <input type="text" name="tod" [(ngModel)]="tod" style="border-radius: 4px; height: 20px;">
+            </th>
+            <th>
+                <label style="font-family: cursive; font-size: 20px;">Enter description : </label>
+                <input type="text" name="des" [(ngModel)]="des" style="border-radius: 4px; height: 20px;">
+            </th>
+        </table>
+        <br><br>
+        <table style="width: 90%;">
+            <th>
+                <label style="font-family: cursive; font-size: 20px;">Enter date : </label>
+                <input type="date" name="dat" [(ngModel)]="dat" style="border-radius: 4px; height: 20px;">
+            </th>
+            <th>
+                <label style="font-family: cursive; font-size: 20px;">creator name : </label>
+                <input type="text" name="dat" [(ngModel)]="name" style="border-radius: 4px; height: 20px;">
+            </th>
+            <th>
+                <label style="font-family: cursive; font-size: 20px;">Department : </label>
+                <input type="text" name="dat" [(ngModel)]="depart" style="border-radius: 4px; height: 20px;">
+            </th>
+        </table><br><br>
+        <table style="width: 90%; margin-left: 20px;">
+            <th>
+                <button
+                    style="width: 80%; height: 30px; border-radius: 4px; box-shadow: black; font-size: 20px; font-family: cursive; background-color: chocolate;"
+                    (click)="this.AddNotice(tod,des,depart,dat,name)" type="submit">Submit</button>
+            </th>
+        </table>
+        <br>
+    </div>
+    <!-- <app-display [todo]="todoList"></app-display> -->
+
+
+</div>
+
+
+<div style="padding-top: 50px; padding-bottom: 50px; background-color: rgba(135, 207, 235, 0.459) ">
+    <div
+        style="max-width: 900px; margin: auto; margin-top: 40px; border: 3px solid brown; background-color: rgba(255, 228, 196, 0.788); padding: 50px; text-align: center; box-shadow: 5px 10px;">
+        <h2 style="font-family: cursive;">TODO Items</h2>
+        <h3>Quantity : {{this.noticeList.length}}</h3>
+        <table
+            style="text-align: left; width: 100%; background-color: aquamarine; padding: 20px; box-shadow: 5px 10px;">
+            <h2 *ngIf="this.noticeList.length==0" style="font-family: cursive;">List is empty</h2>
+            <div style="border: 3px solid #318a82e3; padding: 10px; margin: 10px; box-shadow: 5px 10px;"
+                *ngFor="let item of this.noticeList">
+                <tr>
+                    <td style="width: 90%;"><b>Title :</b> : {{item.title}}</td>
+                    <td style="width: 90%;"><b>Creator :</b> : {{item.creator}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Notice description</b> : {{item.description}}
+                    </td>
+                    <td>
+                        <b>Date</b> : {{item.date}}
+                    </td>
+                </tr>
+                <br>
+            </div>
+        </table>
+        <button
+            style=" margin-top: 50px; width: 80%; height: 30px; height: 40px; border-radius: 4px; box-shadow: black; font-size: 20px; font-family: cursive; background-color: chocolate;"
+            [routerLink]="'/add'" type="submit">Home Page</button>
+    </div>
+</div>
